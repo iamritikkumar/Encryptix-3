@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Board</title>
+    <link rel="stylesheet" href="Job Board style 1.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Job Board</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#job-listings">Job Listings</a></li>
+                <li><a href="#employer-dashboard">Employer Dashboard</a></li>
+                <li><a href="#candidate-dashboard">Candidate Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Home Page Section -->
+        <section id="home">
+            <h2>Welcome to the Job Board</h2>
+            <p>Find your dream job or post a new job opening.</p>
+        </section>
+
+        <!-- Job Listings Page Section -->
+        <section id="job-listings">
+            <h2>Job Listings</h2>
+            <label for="job-select">Select a job opening:</label>
+            <select id="job-select" onchange="showJobDetails()">
+                <option value="">Select a job</option>
+                <option value="software-engineer">Software Engineer</option>
+                <option value="data-analyst">Data Analyst</option>
+                <option value="web-developer">Web Developer</option>
+                <option value="system-administrator">System Administrator</option>
+                <option value="network-engineer">Network Engineer</option>
+            </select>
+
+            <div id="job-details">
+                <!-- Job details will be displayed here -->
+            </div>
+        </section>
+
+        <script>
+            function showJobDetails() {
+                const jobDetails = {
+                    'software-engineer': `
+                        <h2>Software Engineer</h2>
+                        <p>Company: Microsoft </p>
+                        <p>Location: Redmond </p>
+                        <p>Description: Responsible for developing and maintaining software applications.</p>
+                        <p>Requirements: Experience with JavaScript, React, Node.js.</p>
+                        <button>Apply Now</button>
+                    `,
+                    'data-analyst': `
+                        <h2>Data Analyst</h2>
+                        <p>Company: Tata Consultancy Services </p>
+                        <p>Location: Noida </p>
+                        <p>Description: Analyze data to help companies make informed decisions.</p>
+                        <p>Requirements: Experience with SQL, Python, data visualization tools.</p>
+                        <button>Apply Now</button>
+                    `,
+                    'web-developer': `
+                        <h2>Web Developer</h2>
+                        <p>Company: webdestination </p>
+                        <p>Location: Mumbai </p>
+                        <p>Description: Develop and maintain websites and web applications.</p>
+                        <p>Requirements: Experience with HTML, CSS, JavaScript, and frameworks.</p>
+                        <button>Apply Now</button>
+                    `,
+                    'system-administrator': `
+                        <h2>System Administrator</h2>
+                        <p>Company: Information system Administrator </p>
+                        <p>Location: Bengaluru </p>
+                        <p>Description: Maintain and manage company IT infrastructure.</p>
+                        <p>Requirements: Experience with Linux, Windows Server, network security.</p>
+                        <button>Apply Now</button>
+                    `,
+                    'network-engineer': `
+                        <h2>Network Engineer</h2>
+                        <p>Company: Wipro </p>
+                        <p>Location: Bangalore</p>
+                        <p>Description: Design, implement, and manage network systems.</p>
+                        <p>Requirements: Experience with network protocols, hardware, and security.</p>
+                        <button>Apply Now</button>
+                    `
+                };
+    
+                const selectedJob = document.getElementById('job-select').value;
+                const jobDetailDiv = document.getElementById('job-details');
+    
+                if (selectedJob && jobDetails[selectedJob]) {
+                    jobDetailDiv.innerHTML = jobDetails[selectedJob];
+                } else {
+                    jobDetailDiv.innerHTML = '';
+                }
+            }
+        </script>
+
+        <!-- Employer Dashboard Section -->
+        <section id="employer-dashboard">
+            <h2>Employer Dashboard</h2>
+            <form id="employer-form">
+                <label for="employer-name">Employer Name:</label>
+                <input type="text" id="employer-name" name="employer-name" required>
+                <label for="employer-phone">Employer Phone No:</label>
+                <input type="text" id="employer-phone" name="employer-phone" maxlength="10" required>
+                <label for="employer-email">Employer Email:</label>
+                <input type="email" id="employer-email" name="employer-email" required>
+                <label for="employer-id">Employer ID:</label>
+                <input type="number" id="employer-id" name="employer-id" required>
+                <label for="employer-department">Employer Department:</label>
+                <input type="text" id="employer-department" name="employer-department" required>
+                <label for="employer-salary">Employer Salary:</label>
+                <input type="number" id="employer-salary" name="employer-salary" required>
+                <label for="job-title">Job Title:</label>
+                <input type="text" id="job-title" name="job-title" required>
+                <label for="job-description">Job Description:</label>
+                <input type="text" id="job-description" name="job-description" required>
+                <label for="job-location">Job Location:</label>
+                <input type="text" id="job-location" name="job-location" required>
+                <button type="submit">Post Job</button>
+            </form>
+        </section>
+
+        <!-- Candidate Dashboard Section -->
+        <section id="candidate-dashboard">
+            <h2>Candidate Dashboard</h2>
+            <form id="candidate-form">
+                <label for="candidate-name">Candidate Name:</label>
+                <input type="text" id="candidate-name" name="candidate-name" required>
+                <label for="candidate-phone">Candidate Phone No:</label>
+                <input type="text" id="candidate-phone" name="candidate-phone" maxlength="10" required>
+                <label for="candidate-email">Candidate Email:</label>
+                <input type="email" id="candidate-email" name="candidate-email" required>
+                <label for="candidate-id">Candidate ID:</label>
+                <input type="number" id="candidate-id" name="candidate-id" required>
+                <label for="job-openining">Job Openining:</label>
+                <input type="text" id="job-openining" name="openining" required>
+                <label for="job-description">Job Description:</label>
+                <input type="text" id="job-description" name="job-description" required>
+                <label for="job-status">Job Status:</label>
+                <input type="text" id="job-status" name="job-status" required>
+                <label for="update-profile">Update Profile:</label>
+                <input type="text" id="update-profile" name="update-profile" required>
+                <label for="help">Help:</label>
+                <input type="text" id="help" name="help" required>
+                <label for="job-feedback">Job-Feedback:</label>
+                <input type="text" id="job-feedback" name="job-feedback" required>
+                <button type="submit">Update Profile</button>
+            </form>
+        </section>
+
+        <!-- Job Application Process Section -->
+        <section id="job Application">
+            <h2>Job Application</h2>
+            <form id="profile-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="phone">Phone No.</label>
+                <input type="text" id="number" name="number" maxlength="10" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="phone">WhatsApp No.</label>
+                <input type="text" id="number" name="number" maxlength="10" required>
+                <label for="address">Address</label>
+                <input type="text" id="name" name="name" required>
+                <label for="10th">10th</label>
+                <input type="text" id="name" name="name" required>
+                <label for="12th">12th</label>
+                <input type="text" id="name" name="name" required>
+                <label for="graduation">Graduation</label>
+                <input type="text" id="name" name="name" required>
+                <label for="name">Father's Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="phone">Father's Phone No.</label>
+                <input type="number" id="number" name="number" required>
+                <label for="job selection">Job selection</label>
+                <input type="text" id="name" name="name" required>
+                <label for="location">Location</label>
+                <input type="text" id="name" name="name" required>
+                <label for="resume">Upload Resume</label>
+                <input type="file" id="upload resume" name="upload resume" required>
+                <label for="select Job"> Select Job:</label>
+                <select name="select Job" id="select Job">
+                    <option value="">Select a job to apply</option>
+                    <option value="software-engineer">Software Engineer</option>
+                    <option value="data-analyst">Data Analyst</option>
+                    <option value="web-developer">Web Developer</option>
+                    <option value="system-administrator">System Administrator</option>
+                    <option value="network-engineer">Network Engineer</option>
+                </select><br><br>
+                <button type="submit"> Apply Job</button>
+            </form>
+        </section>
+
+        <!-- Search Functionality Section -->
+        <section id="search-jobs">
+            <h2>Search Jobs</h2>
+            <input type="text" id="search-bar" placeholder="Search for jobs...">
+            <button onclick="searchJobs()">Search</button>
+            <div id="search-results"></div>
+        </section>
+
+        <!-- Email Notifications Section -->
+        <section id="email-notifications">
+            <h2>Email Notifications</h2>
+            <form id="notification-form">
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="submit">Email verify</button>
+            </form>
+        </section>
+
+        <!-- User Authentication Section -->
+        <section id="login">
+            <h2>User Login</h2>
+            <form id="login-form" action="authenticate.php" method="post">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div><br>
+                <button type="submit">Login</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Job Board. All rights reserved.</p>
+    </footer>
+</body>
+</html>
